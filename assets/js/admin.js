@@ -33,9 +33,9 @@ async function loadSection(id, file) {
 ========================= */
 
 async function initAdmin() {
-    await loadSection("adminSidebar", "sections/admin/admin-sidebar.html");
-    await loadSection("adminHeader", "sections/admin/admin-header.html");
-    await loadSection("adminContent", "sections/admin/admin-dashboard.html");
+    await loadSection("adminSidebar", "admin/admin-sidebar.html");
+    await loadSection("adminHeader", "admin/admin-header.html");
+    await loadSection("adminContent", "admin/admin-dashboard.html");
 
     bindMenu();
 }
@@ -66,7 +66,7 @@ function bindMenu() {
 
             await loadSection(
                 "adminContent",
-                `sections/admin/admin-${page}.html`
+                `admin/admin-${page}.html`
             );
 
         });
