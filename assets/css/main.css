@@ -1,0 +1,614 @@
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f9fafb;
+    color: #1e293b;
+    line-height: 1.6;
+}
+
+/* ================= GLOBAL ================= */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+section {
+    padding: 80px 0;
+}
+
+h1,
+h2,
+h3 {
+    color: #0f172a;
+}
+
+p {
+    color: #64748b;
+}
+
+.eyebrow {
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #2563eb;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-heading h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+/* ================= BUTTONS ================= */
+.btn-primary {
+    background: #2563eb;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-secondary {
+    border: 2px solid #2563eb;
+    color: #2563eb;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ================= HEADER ================= */
+.site-header {
+    background: white;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.brand img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
+
+.brand h1 {
+    font-size: 18px;
+}
+
+.brand p {
+    font-size: 12px;
+}
+
+.nav-menu a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #334155;
+    font-size: 14px;
+}
+
+.admin-link {
+    font-weight: bold;
+    color: #2563eb;
+}
+
+.site-header {
+    padding: 8px 0;
+}
+
+.brand h1 {
+    font-size: 16px;
+    margin-bottom: 2px;
+}
+
+.brand p {
+    font-size: 11px;
+}
+
+/* ================= HERO ================= */
+.hero-section {
+    background: linear-gradient(to right, #fef3c7, #e0f2fe);
+}
+
+.hero-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-text h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.hero-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.hero-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    max-width: 300px;
+}
+
+.mini-list span {
+    display: block;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* ================= IMPACT ================= */
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.impact-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+/* ================= ABOUT ================= */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.image-placeholder {
+    background: #e2e8f0;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ================= PROGRAMS ================= */
+.program-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.program-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+/* ================= BACKEND ================= */
+.backend-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.backend-list li {
+    margin-bottom: 8px;
+}
+
+.backend-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.flow-step {
+    background: #2563eb;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+.flow-arrow {
+    font-size: 20px;
+}
+
+/* ================= EVENTS ================= */
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.event-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.event-card span {
+    font-size: 12px;
+    color: #2563eb;
+}
+
+/* ================= JOIN ================= */
+.join-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2563eb;
+    color: white;
+    padding: 40px;
+    border-radius: 15px;
+}
+
+.join-box p {
+    color: #e0f2fe;
+}
+
+.join-buttons a {
+    margin-left: 10px;
+}
+
+/* ================= CONTACT ================= */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input,
+.contact-form textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #cbd5f5;
+    border-radius: 6px;
+}
+
+.contact-form button {
+    background: #2563eb;
+    color: white;
+    padding: 10px;
+    border: none;
+}
+
+/* ================= FOOTER ================= */
+.site-footer {
+    background: #0f172a;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* ================= CHAT ================= */
+.chat-bubble {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #2563eb;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    text-decoration: none;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+
+    .hero-content,
+    .about-grid,
+    .backend-grid,
+    .contact-grid,
+    .join-box {
+        flex-direction: column;
+        grid-template-columns: 1fr;
+    }
+
+    .impact-grid,
+    .program-grid,
+    .event-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ================= CLEAN HERO BANNER ================= */
+.hero-clean {
+    background: #ffffff;
+    padding: 0 0 70px;
+}
+
+.hero-banner {
+    width: 100%;
+    background: #ffffff;
+}
+
+.hero-banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.hero-intro {
+    text-align: center;
+    max-width: 850px;
+    padding-top: 45px;
+}
+
+.hero-intro h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.hero-intro p {
+    font-size: 16px;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.hero-intro .hero-buttons {
+    justify-content: center;
+}
+
+/* ================= FORM PAGE ================= */
+.form-page-section {
+    background: #f8fafc;
+    padding: 90px 0;
+}
+
+.form-page-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 45px;
+    align-items: start;
+}
+
+.form-intro h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.form-intro p {
+    max-width: 500px;
+}
+
+.signup-form {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+    display: grid;
+    gap: 14px;
+}
+
+.signup-form input,
+.signup-form select,
+.signup-form textarea {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.signup-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.signup-form button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 14px 18px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.signup-form button:hover {
+    background: #1d4ed8;
+}
+
+@media (max-width: 768px) {
+    .form-page-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================
+   HEADER LOGO
+========================= */
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.site-logo {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    display: block;
+}
+
+.logo-text h2 {
+    margin: 0;
+    font-size: 28px;
+    color: #0f172a;
+}
+
+.logo-text p {
+    margin: 0;
+    font-size: 14px;
+    color: #64748b;
+}
+
+/* =========================
+   HEADER / BRAND
+========================= */
+
+.site-header {
+    background: #ffffff;
+    border-bottom: 3px solid #0f172a;
+    padding: 15px 0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.site-logo {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+    display: block;
+}
+
+.brand-text h1 {
+    margin: 0;
+    font-size: 30px;
+    color: #0f172a;
+}
+
+.brand-text p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #64748b;
+}
+
+/* =========================
+   FINAL HEADER POLISH
+========================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: #ffffff;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #1e293b;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: #ea580c;
+}
+
+.admin-link {
+    background: #ea580c;
+    color: white !important;
+    padding: 10px 16px;
+    border-radius: 8px;
+}
+
+.admin-link:hover {
+    background: #c2410c;
+}
+
+.hero-buttons a,
+.join-buttons a,
+.contact-form button,
+.btn-primary,
+.btn-secondary {
+    transition: 0.3s ease;
+}
+
+.btn-primary:hover,
+.contact-form button:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+.btn-secondary:hover {
+    background: #2563eb;
+    color: white;
+}
+
+/* =========================
+   MOBILE HEADER
+========================= */
+
+@media (max-width: 768px) {
+
+    .header-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .brand {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .brand-text h1 {
+        font-size: 22px;
+    }
+
+    .nav-menu {
+        justify-content: center;
+    }
+
+    .site-logo {
+        width: 65px;
+        height: 65px;
+    }
+
+    .hero-intro h2 {
+        font-size: 28px;
+    }
+}
