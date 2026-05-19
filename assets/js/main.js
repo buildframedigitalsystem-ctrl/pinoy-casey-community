@@ -1,6 +1,7 @@
 /* =========================
-   PINOY CASEY PLATFORM
+   PINOY CASEY COMMUNITY PLATFORM
    MAIN WEBSITE JS
+   BuildFrame Digital System
 ========================= */
 
 /* =========================
@@ -32,7 +33,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 });
 
 /* =========================
-   FORM DATA
+   FORM DATA HELPER
 ========================= */
 
 function getFormData(form) {
@@ -44,7 +45,7 @@ function getFormData(form) {
 }
 
 /* =========================
-   SEND TO BACKEND
+   SEND DATA TO BACKEND
 ========================= */
 
 async function sendToBackend(payload) {
@@ -54,13 +55,7 @@ async function sendToBackend(payload) {
         await fetch(PINOY_CASEY_API_URL, {
 
             method: "POST",
-
             mode: "no-cors",
-
-            headers: {
-                "Content-Type": "application/json"
-            },
-
             body: JSON.stringify(payload)
 
         });
@@ -84,234 +79,128 @@ async function sendToBackend(payload) {
 }
 
 /* =========================
-   MEMBER FORM
+   UNIVERSAL FORM HANDLER
 ========================= */
 
-const memberForm =
-    document.getElementById("memberForm");
+function setupForm(formId, actionName, successMessage, buttonText) {
 
-if (memberForm) {
+    const form = document.getElementById(formId);
 
-    memberForm.addEventListener(
-        "submit",
-        async function (e) {
+    if (!form) return;
 
-            e.preventDefault();
+    form.addEventListener("submit", async function (e) {
 
-            const submitBtn =
-                memberForm.querySelector("button");
+        e.preventDefault();
 
+        const submitBtn = form.querySelector("button");
+
+        if (submitBtn) {
             submitBtn.disabled = true;
+            submitBtn.textContent = "Submitting...";
+        }
 
-            submitBtn.textContent =
-                "Submitting...";
+        try {
 
-            try {
+            const data = getFormData(form);
 
-                const data =
-                    getFormData(memberForm);
+            const result = await sendToBackend({
+                action: actionName,
+                ...data
+            });
 
-                const result =
-                    await sendToBackend({
+            if (result.success) {
 
-                        action: "saveMember",
+                alert(successMessage);
+                form.reset();
 
-                        ...data
-
-                    });
-
-                if (result.success) {
-
-                    alert(
-                        "Membership form submitted successfully!"
-                    );
-
-                    memberForm.reset();
-
-                } else {
-
-                    alert(
-                        result.message ||
-                        "Something went wrong."
-                    );
-
-                }
-
-            } catch (error) {
+            } else {
 
                 alert(
-                    "Submission failed. Please check your backend connection."
+                    result.message ||
+                    "Something went wrong."
                 );
-
-                console.error(error);
 
             }
 
-            submitBtn.disabled = false;
+        } catch (error) {
 
-            submitBtn.textContent =
-                "Submit Membership Form";
+            alert(
+                "Submission failed. Please check your backend connection."
+            );
+
+            console.error(error);
 
         }
-    );
+
+        if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = buttonText;
+        }
+
+    });
 
 }
 
 /* =========================
-   VOLUNTEER FORM
+   FORM CONNECTIONS
 ========================= */
 
-const volunteerForm =
-    document.getElementById("volunteerForm");
+setupForm(
+    "memberForm",
+    "saveMember",
+    "Membership form submitted successfully!",
+    "Submit Membership Form"
+);
 
-if (volunteerForm) {
+setupForm(
+    "volunteerForm",
+    "saveVolunteer",
+    "Volunteer form submitted successfully!",
+    "Submit Volunteer Form"
+);
 
-    volunteerForm.addEventListener(
-        "submit",
-        async function (e) {
+setupForm(
+    "eventForm",
+    "saveEventRequest",
+    "Event / payment request submitted successfully!",
+    "Submit Request"
+);
 
-            e.preventDefault();
+setupForm(
+    "participantForm",
+    "saveParticipant",
+    "Participant registration submitted successfully!",
+    "Submit Registration"
+);
 
-            const submitBtn =
-                volunteerForm.querySelector("button");
+setupForm(
+    "sponsorForm",
+    "saveSponsor",
+    "Partner / sponsor request submitted successfully!",
+    "Submit Partner / Sponsor Request"
+);
 
-            submitBtn.disabled = true;
+setupForm(
+    "donationForm",
+    "saveDonation",
+    "Donation / support record submitted successfully!",
+    "Submit Donation"
+);
 
-            submitBtn.textContent =
-                "Submitting...";
+setupForm(
+    "contactForm",
+    "saveMessage",
+    "Message sent successfully!",
+    "Send Message"
+);
 
-            try {
-
-                const data =
-                    getFormData(volunteerForm);
-
-                const result =
-                    await sendToBackend({
-
-                        action: "saveVolunteer",
-
-                        ...data
-
-                    });
-
-                if (result.success) {
-
-                    alert(
-                        "Volunteer form submitted successfully!"
-                    );
-
-                    volunteerForm.reset();
-
-                } else {
-
-                    alert(
-                        result.message ||
-                        "Something went wrong."
-                    );
-
-                }
-
-            } catch (error) {
-
-                alert(
-                    "Submission failed. Please check your backend connection."
-                );
-
-                console.error(error);
-
-            }
-
-            submitBtn.disabled = false;
-
-            submitBtn.textContent =
-                "Submit Volunteer Form";
-
-        }
-    );
-
-}
-
-/* =========================
-   CONTACT FORM
-========================= */
-
-const contactForm =
+/* Also support contact form by class name */
+const contactFormByClass =
     document.querySelector(".contact-form");
 
-if (contactForm) {
+if (contactFormByClass && !contactFormByClass.id) {
 
-    contactForm.addEventListener(
-        "submit",
-        async function (e) {
-
-            e.preventDefault();
-
-            const submitBtn =
-                contactForm.querySelector("button");
-
-            submitBtn.disabled = true;
-
-            submitBtn.textContent =
-                "Sending...";
-
-            try {
-
-                const data =
-                    getFormData(contactForm);
-
-                const result =
-                    await sendToBackend({
-
-                        action: "saveMessage",
-
-                        fullName:
-                            data.fullName || "",
-
-                        email:
-                            data.email || "",
-
-                        subject:
-                            data.subject || "",
-
-                        message:
-                            data.message || ""
-
-                    });
-
-                if (result.success) {
-
-                    alert(
-                        "Message sent successfully!"
-                    );
-
-                    contactForm.reset();
-
-                } else {
-
-                    alert(
-                        result.message ||
-                        "Something went wrong."
-                    );
-
-                }
-
-            } catch (error) {
-
-                alert(
-                    "Message failed. Please check your backend connection."
-                );
-
-                console.error(error);
-
-            }
-
-            submitBtn.disabled = false;
-
-            submitBtn.textContent =
-                "Send Message";
-
-        }
-    );
+    contactFormByClass.id = "contactForm";
 
 }
 
@@ -320,5 +209,6 @@ if (contactForm) {
 ========================= */
 
 console.log(
-    "Pinoy Casey Community Platform connected successfully."
+    "Pinoy Casey Community Platform connected to:",
+    PINOY_CASEY_API_URL
 );
