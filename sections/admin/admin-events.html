@@ -1,12 +1,13 @@
 <div class="module-card">
 
     <h2>
-        Events Management
+        Events, Tickets & Bookings
     </h2>
 
     <p>
-        Create, manage, and organize
-        community events and activities.
+        Manage upcoming events, participant registrations,
+        event tickets, stallholder bookings, activity providers,
+        and entertainment records.
     </p>
 
     <br>
@@ -17,7 +18,7 @@
         <div class="admin-panel">
 
             <h3>
-                Create Community Event
+                Create / Manage Event
             </h3>
 
             <form class="admin-form">
@@ -27,12 +28,23 @@
                     placeholder="Event Title"
                 >
 
-                <input type="date">
+                <input
+                    type="date"
+                >
 
                 <input
                     type="text"
                     placeholder="Venue / Location"
                 >
+
+                <select>
+                    <option>Community Event</option>
+                    <option>Cultural Program</option>
+                    <option>Youth Program</option>
+                    <option>Business / Financial Program</option>
+                    <option>Fundraising Event</option>
+                    <option>Festival / Celebration</option>
+                </select>
 
                 <textarea
                     placeholder="Event Description"
@@ -46,7 +58,40 @@
 
         </div>
 
-        <!-- EVENT NOTES -->
+        <!-- EVENT RECORDS -->
+        <div class="admin-panel">
+
+            <h3>
+                Event Requests & Registrations
+            </h3>
+
+            <table class="admin-table">
+
+                <thead>
+                    <tr>
+                        <th>Registrant / Group</th>
+                        <th>Type</th>
+                        <th>Event</th>
+                        <th>Payment</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody id="eventsTableBody">
+                    <tr>
+                        <td>No records yet</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>Waiting for backend</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <!-- MODULE FEATURES -->
         <div class="admin-panel">
 
             <h3>
@@ -59,12 +104,14 @@
 
             <ul class="admin-overview-list">
 
-                <li>Community event publishing</li>
-                <li>Event registration tracking</li>
-                <li>Volunteer assignment</li>
-                <li>Attendance monitoring</li>
-                <li>Photo/gallery uploads</li>
-                <li>Event reports and summaries</li>
+                <li>Upcoming event creation</li>
+                <li>Participant registrations</li>
+                <li>Event ticket payment tracking</li>
+                <li>Stallholder booking requests</li>
+                <li>Activity and entertainment provider records</li>
+                <li>Volunteer assignments per event</li>
+                <li>Past event highlights and gallery albums</li>
+                <li>Event reports for board review</li>
 
             </ul>
 
